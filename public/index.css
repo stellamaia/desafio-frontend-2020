@@ -1,0 +1,24 @@
+.adicionar__carrinho {
+    height: 40px;
+    width: 100%;
+    border: 0;
+    box-shadow: 0 0 0.5em rgb(207, 206, 207);
+    border-top: 0px !important;
+    color: #a716a7;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.adicionar__carrinho:hover {
+    background-color: #781bc4;
+    color: white;
+    transition: all 0.5s;
+}
+
+.valor {
+    font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
+}
