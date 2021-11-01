@@ -1,25 +1,20 @@
 <template>
   <div id="app" @click="getItemOnCar">
-    <b-navbar
-      class="navbar-content"
-      fixed="top"
-      coo
-      variant="light"
-      type="light"
-    >
+    <div class="fake-navbar"></div>
+    <b-navbar class="container navbar-content" fixed="top" coo>
       <b-navbar-brand tag="h1" class="mb-0" @click="navigateToHome()">
         <span class="mkt">Mkt</span>
         <span class="place">Place</span>
       </b-navbar-brand>
 
       <p class="products" @click="navigateToHome()">Produtos</p>
-      <span class="material-icons car products" @click="navigateToCart()">
+      <span class="material-icons car" @click="navigateToCart()">
         shopping_cart
       </span>
       <b-badge
         @click="navigateToCart()"
         v-if="lenghtItemCarSelected"
-        class="car products selected-itens-car"
+        class="car selected-itens-car"
         variant="light"
         >{{ lenghtItemCarSelected }}</b-badge
       >
@@ -67,9 +62,15 @@ export default {
   color: #2c3e50;
 }
 .navbar-content {
-  box-shadow: 0 0 0.5em rgb(207, 206, 207);
+  background-color: #fff !important;
 }
-.mkt {
+.fake-navbar {
+  height: 64px;
+  width: 100%;
+  position: fixed;
+  z-index: 9;
+  background: white;
+  top: 0;
 }
 .place {
   color: purple;
@@ -77,20 +78,20 @@ export default {
 }
 .products {
   color: rgb(133, 133, 133);
-  left: 76%;
   top: 10px;
-  padding: 0 10px 0 20px;
-  position: absolute;
   font-size: 20px;
   cursor: pointer;
   z-index: 999999;
+  position: absolute;
+  right: 80px;
 }
 .car {
   color: rgb(135, 32, 194);
   padding: 0;
   margin-left: 115px;
-  margin-top: 5px;
   cursor: pointer;
+  position: absolute;
+  right: 30px;
 }
 .selected-itens-car {
   border: 1px solid red !important;
@@ -101,8 +102,8 @@ export default {
   font-size: 10px !important;
   background: red !important;
   color: white !important;
-  margin-left: 135px !important;
-  margin-top: 10px !important;
+  position: absolute;
+  right: 10px;
 }
 
 .mb-0 {
