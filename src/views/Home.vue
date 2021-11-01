@@ -2,7 +2,7 @@
   <div>
     <div class="home-page">
       <b-carousel
-        class="d-none d-sm-block carousel-fade"
+        class="carousel-fade"
         id="mainCarousel"
         :interval="4000"
         indicators="indicators"
@@ -33,17 +33,15 @@
 
     <b-container class="cards-wrapper">
       <div class="principal">
-        <b-form-group
-          class="container input"
-          id="input-group-2"
-          label-for="input-2"
-        >
-          <b-container>
-            <b-row class="text-center">
-              <b-col cols="3">
-                <h5 class="text">Encontre seu produto</h5>
-              </b-col>
-              <b-col cols="8">
+        <b-row>
+          <b-col class="text-center" cols="12" lg="6">
+            <h5 class="text">Encontre seu produto</h5>
+            <br />
+          </b-col>
+
+          <b-col cols="12" lg="6">
+            <b-row>
+              <b-col cols="12">
                 <b-form-input
                   id="input-2"
                   v-model="search"
@@ -51,18 +49,20 @@
                   required
                 ></b-form-input>
               </b-col>
-              <b-col cols="1"
-                ><button class="pesquisa__botao">
-                  <span class="material-icons search"> search </span>
-                </button>
-              </b-col>
+              <button class="pesquisa__botao">
+                <span class="material-icons search"> search </span>
+              </button>
             </b-row>
-          </b-container>
-        </b-form-group>
+          </b-col>
+        </b-row>
       </div>
+
       <b-row class="justify-content-md-center">
         <b-col
-          cols="4"
+          cols
+          lg="4"
+          sm="12"
+          md="6"
           v-for="dataProduct in filteredProducts"
           :key="dataProduct.id"
           ><b-card
@@ -78,7 +78,9 @@
                 >[veja mais]</a
               >
             </b-card-text>
-            <h4 class="valor">R${{ dataProduct.price.toLocaleString('pt-BR') }}</h4>
+            <h4 class="valor">
+              R${{ dataProduct.price.toLocaleString("pt-BR") }}
+            </h4>
           </b-card>
           <div class="adicionar">
             <button class="adicionar__carrinho" @click="setToList(dataProduct)">
@@ -200,18 +202,14 @@ export default {
   height: 100% !important;
   width: 80% !important;
 }
-.navbar-light .navbar-brand {
-  color: rgb(148, 147, 147) !important;
-  font-weight: bolder;
-  margin-left: 150px;
-}
+
 .input {
   padding: 40px 0 0 0;
 }
 .principal {
   box-shadow: 0 0 0.5em rgb(207, 206, 207);
-  height: 100px;
   margin-bottom: 20px;
+  padding: 40px 20px 30px 20px;
 }
 .text {
   margin: 5px 0 0 0;
@@ -224,7 +222,9 @@ export default {
   height: 38px;
   border-radius: 0 2px 2px 0;
   cursor: pointer;
-  margin-left: -100px;
+  z-index: 999;
+  position: absolute;
+  right: 15px;
 }
 .search {
   color: white;
