@@ -213,6 +213,10 @@ export default {
 }
 .text {
   margin: 5px 0 0 0;
+  font-family:'Palanquin';
+  font-weight: bolder;
+  color:rgb(151, 149, 145);
+  
 }
 
 .pesquisa__botao {
@@ -222,7 +226,7 @@ export default {
   height: 38px;
   border-radius: 0 2px 2px 0;
   cursor: pointer;
-  z-index: 999;
+
   position: absolute;
   right: 15px;
 }
