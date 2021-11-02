@@ -56,7 +56,7 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+font-family:'Palanquin';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -72,11 +72,19 @@ export default {
   background: white;
   top: 0;
 }
+.mkt{
+  color: rgb(170, 170, 170);
+   font-weight: bold;
+  font-family:'Palanquin';
+}
 .place {
   color: purple;
   font-weight: bold;
+  font-family:'Palanquin';
 }
 .products {
+  font-family:'Palanquin';
+  font-weight: bold;
   color: rgb(133, 133, 133);
   top: 10px;
   font-size: 20px;
@@ -108,5 +116,9 @@ export default {
 
 .mb-0 {
   cursor: pointer;
+  
+}
+.footer{
+font-family:'Palanquin';
 }
 </style>
