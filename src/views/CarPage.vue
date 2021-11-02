@@ -186,6 +186,7 @@ export default {
   margin-top: 100px;
   width: 100%;
   height: 100%;
+  font-family:'Palanquin';
 }
 .container-content {
   margin-top: 40px;
@@ -247,5 +248,8 @@ export default {
   background: #a716a7;
   border: 0;
   border-radius: 2px;
+}
+.container-header{
+  font-family:'Palanquin';
 }
 </style>
