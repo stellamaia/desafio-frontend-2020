@@ -13,7 +13,7 @@
             <h6 class="header">QUANTIDADE</h6>
           </b-col>
           <b-col cols="3">
-            <h6 class="header">VALOR UNITARIO</h6>
+            <h6 class="header">VALOR UNITÁRIO</h6>
           </b-col>
           <b-col cols="3">
             <h6 class="header">TOTAL</h6>
@@ -22,19 +22,12 @@
       </div>
       <div class="container container-content">
         <b-row
-          style="
-            border-bottom: solid 2px rgb(187, 185, 185);
-            padding-top: 30px;
-            padding-bottom: 30px;
-          "
+          class="container-content-row"
           v-for="(selectedItemCar, index) in selectedItemCars"
           :key="index"
         >
           <b-col cols="3">
-            <div
-              style="position: absolute; margin-left: -40px; margin-top: 20px"
-              @click="deleteItemCar(selectedItemCar)"
-            >
+            <div class="delete-item" @click="deleteItemCar(selectedItemCar)">
               <span class="material-icons" @click="navigateToCart()">
                 delete
               </span>
@@ -48,17 +41,8 @@
           </b-col>
 
           <b-col cols="3">
-            <div class="completo">
-              <label for="sb-input"></label>
-              <b-form-spinbutton
-                style="width: 50%"
-                id="sb-input"
-                v-model="value1"
-                @change="value2 = $event"
-                wrap
-                disabled
-              ></b-form-spinbutton>
-            </div>
+            <label for="sb-input"></label>
+            N/A
           </b-col>
 
           <b-col>
@@ -78,15 +62,15 @@
           </b-col>
         </b-row>
         <b-row class="mt-5">
-          <b-col cols="6"> <b-col cols="3"> </b-col></b-col>
-          <b-col cols="6">
+          <b-col lg="6" md="6"> <b-col lg="3"> </b-col></b-col>
+          <b-col lg="6" md="6">
             <b-row>
               <b-col>
                 <h6 class="ml-5">TOTAL À VISTA</h6>
               </b-col>
 
               <b-col>
-                <h4>R${{ sumTotal() }}</h4>
+                <h4>R${{ sumTotal().toLocaleString("pt-BR") }}</h4>
               </b-col>
             </b-row>
             <b-row>
@@ -95,61 +79,42 @@
               </b-col>
 
               <b-col>
-                <h5>em atė 10x R$</h5>
-                <small>(Total R${{ sumTotal() }})</small>
+                <h5>
+                  em atė 10x R$ R${{
+                    (sumTotal() / 10).toLocaleString("pt-BR")
+                  }}
+                </h5>
+                <small
+                  >(Total R${{ sumTotal().toLocaleString("pt-BR") }})</small
+                >
               </b-col>
             </b-row>
-          </b-col> </b-row
-        ><b-row
-          class="mt-5"
-          style="border-top: solid 2px rgb(187, 185, 185); padding-top: 30px"
-        >
-          <b-col cols="6">
-            <b-col cols="5" @click="clearCar">
-              <span
-                style="position: absolute; margin-left: -30px; margin-top: -1px"
-                class="material-icons"
-                @click="navigateToCart()"
-              >
+          </b-col>
+        </b-row>
+        <b-row class="item-car mt-5 text-center">
+          <b-col lg="6" md="6">
+            <b-col lg="6" @click="clearCar">
+              <span class="material-icons clear-car" @click="navigateToCart()">
                 delete </span
               >Limpar carrinho
-            </b-col></b-col
-          >
-          <b-col cols="6">
-            <b-row>
-              <b-col>
-                <b-button
-                  style="
-                    padding: 15px;
-                    padding-left: 16px;
-                    padding-right: 16px;
-                    background: grey;
-                    border: 0;
-                    border-radius: 2px;
-                  "
-                  class="ml-5"
-                  @click="navigateToHome()"
-                  >Continuar comprando</b-button
-                >
-              </b-col>
+            </b-col>
+            <b-col cols="6"> </b-col>
+          </b-col>
 
-              <b-col>
-                <b-button
-                  style="
-                    padding: 15px;
-                    padding-left: 16px;
-                    padding-right: 16px;
-                    background: #a716a7;
-                    border: 0;
-                    border-radius: 2px;
-                  "
-                  type="submit"
-                  variant="primary"
-                  @click="navigateToCheckout()"
-                  >Concluir compra</b-button
-                >
-              </b-col>
-            </b-row>
+          <b-col lg="3" md="3">
+            <b-button class="continue-paying mt-2" @click="navigateToHome()"
+              >Continuar comprando</b-button
+            >
+          </b-col>
+
+          <b-col lg="3" md="3">
+            <b-button
+              class="payed mt-2"
+              type="submit"
+              variant="primary"
+              @click="navigateToCheckout()"
+              >Concluir compra</b-button
+            >
           </b-col>
         </b-row>
       </div>
@@ -204,7 +169,7 @@ export default {
       this.selectedItemCars.forEach((selectedItemCar) => {
         valueSumed = selectedItemCar.price + valueSumed;
       });
-      return valueSumed.toLocaleString("pt-BR");
+      return valueSumed;
     },
     navigateToHome() {
       this.$router.push("/");
@@ -225,8 +190,14 @@ export default {
 .container-content {
   margin-top: 40px;
 }
+.container-content-row {
+  border-bottom: solid 2px rgb(187, 185, 185);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 .header {
   font-weight: bolder;
+  word-break: break-all;
 }
 .eletronico {
   font-weight: bolder;
@@ -238,5 +209,43 @@ export default {
   font-size: 17px;
 }
 .contador {
+}
+
+.item-car {
+  border-top: solid 2px rgb(187, 185, 185);
+  padding-top: 30px;
+}
+.delete-item {
+  position: absolute;
+  margin-left: -40px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.clear-car {
+  position: absolute;
+  margin-left: -30px;
+  margin-top: -1px;
+  cursor: pointer;
+}
+.text-center{
+  cursor: pointer;
+}
+.continue-paying {
+  padding: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: grey;
+  border: 0;
+  border-radius: 2px;
+  width: 100%;
+}
+.payed {
+  width: 100%;
+  padding: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: #a716a7;
+  border: 0;
+  border-radius: 2px;
 }
 </style>
