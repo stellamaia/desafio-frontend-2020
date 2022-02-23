@@ -1,8 +1,10 @@
 # Desafio FrontEnd - OW Interactive 2020
+![image](https://user-images.githubusercontent.com/78916702/155361810-a2d14045-6788-4b26-8743-6294c4e531de.png)
+![image](https://user-images.githubusercontent.com/78916702/155361987-8f32094c-41a0-4362-b0a5-4152b08b227a.png)
+![image](https://user-images.githubusercontent.com/78916702/155362129-ec47ed47-6068-4ab2-8878-cc48e479de40.png)
+![image](https://user-images.githubusercontent.com/78916702/155362161-1e2879f7-4bc8-4c7f-84e5-8df5b52b2eda.png)
 
-## Sobre a OW Interactive
 
-Fazemos parte do universo digital, focada em criar e desenvolver experiências interativas, integrando planejamento, criatividade e tecnologia. Conheça mais sobre nós em: [OW Interactive - Quem somos](http://www.owinteractive.com/quem-somos/).
 
 ## Pré-requisitos
 
